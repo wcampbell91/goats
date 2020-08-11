@@ -21,7 +21,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h2>INSIDE APP COMPONENT</h2>
-        <GoatCorral goats={goats}/>
+        <GoatCorral goats={goats} />
       </div>
     );
   }
