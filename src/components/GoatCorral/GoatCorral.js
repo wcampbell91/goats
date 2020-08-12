@@ -8,14 +8,16 @@ class GoatCorral extends React.Component {
   static propTypes = {
     // ^^ Expects static propTypes
     goats: PropTypes.arrayOf(goatShape.goatShape),
-    // need the PropTypes here because we are working with an array of objects, so we need to use the arrayOf() method...
+    // ^^ need the PropTypes here because we are working with an array of objects, so we need to use the arrayOf() method...
+    takeAGoat: PropTypes.func,
+    releaseAGoat: PropTypes.func,
   }
 
   render() {
-    const { goats } = this.props;
+    const { goats, takeAGoat, releaseAGoat } = this.props;
 
     const goatCards = goats.map((goat) => (
-    <Goat key={goat.id} goat={goat}/>
+    <Goat key={goat.id} goat={goat} takeAGoat={takeAGoat} releaseAGoat={releaseAGoat}/>
     ));
 
     return (
