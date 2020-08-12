@@ -1,8 +1,9 @@
 img {
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .card {
+  color: white;
   justify-content: center;
   display: flex;
   flex-flow: row wrap;
