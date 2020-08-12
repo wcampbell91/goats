@@ -53,4 +53,12 @@ const takeGoat = (goatId) => {
   });
 };
 
-export default { getGoats, takeGoat };
+const releaseGoat = (goatId) => {
+  goats.forEach((response) => {
+    if (response.id === goatId) {
+      response.isTaken = false;
+    }
+  });
+};
+
+export default { getGoats, takeGoat, releaseGoat };

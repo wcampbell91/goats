@@ -9,6 +9,7 @@ class Goat extends React.Component {
     goat: goatShape.goatShape,
     // ^^ don't need PropTypes here because it's only working on one goat with that goatShape.goatShape, shape...
     takeAGoat: PropTypes.func,
+    releaseAGoat: PropTypes.func,
   };
 
   takeGoatEvent = (e) => {
@@ -16,6 +17,12 @@ class Goat extends React.Component {
     const { goat, takeAGoat } = this.props;
     takeAGoat(goat.id);
   };
+
+  releaseGoatEvent = (e) => {
+    e.preventDefault();
+    const { goat, releaseAGoat } = this.props;
+    releaseAGoat(goat.id);
+  }
 
   render() {
     const { goat } = this.props;
@@ -31,7 +38,7 @@ class Goat extends React.Component {
         <div className="card-footer row">
           {
             goat.isTaken ? (
-              <button className="btn btn-danger col-12">FREE THE GOAT</button>
+              <button className="btn btn-danger col-12"onClick={this.releaseGoatEvent}>FREE THE GOAT</button>
             ) : (
               <button className="btn btn-success col-12"onClick={this.takeGoatEvent}>TAKE THE GOAT</button>
             )
